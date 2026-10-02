@@ -1,56 +1,257 @@
-/* ==========================================================================
-   Harbour Night Market — your stylesheet.
-
-   Step 1  Connect this file to index.html (Exercise 1).
-           It lives in the css/ folder, so the path is css/style.css.
-           Prove it works: uncomment the rule below, save, reload.
-   Step 2  Selectors (Exercise 3) — write them under "Selectors".
-   Step 3  Prep (Exercise 5a) — reset, variables, fonts, rem, ch.
-   Step 4  The makeover (Exercise 5b) — go wild, but keep the checklist.
-   ========================================================================== */
-
-/* body { background: hotpink; } */
-
-
-/* ---------- Reset (mini-exercise "Box your cards") ---------------------- */
-
-/* *, *::before, *::after { box-sizing: border-box; } */
-
-
-/* ---------- Variables & type (Exercise 5a) ------------------------------
-   Uncomment, then replace every … with your own decision.                 */
-
-/*
+*, *::before, *::after { box-sizing: border-box; }
+ 
 button, input, select { font: inherit; }
-
+ 
 :root {
-  --bg: …;
-  --ink: …;
-  --accent: …;
+  --bg: #151834;
+  --surface: #22264a;
+  --ink: #f3ead8;
+  --muted: #c9bfae;
+  --accent: #ffb547;
+  --lantern: #ff5c4d;
+  --radius: 14px;
+  --font-display: "Fraunces", Georgia, serif;
 }
+ 
 body {
+  margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: …, sans-serif;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  line-height: 1.6;
 }
-h1 { font-size: …rem; }
-h2 { font-size: …rem; }
-p  { max-width: …ch; }
-*/
-
-
-/* ---------- Page ---------------------------------------------------------- */
-
-
-/* ---------- Selectors (Exercise 3) --------------------------------------- */
-
-
-/* ---------- Makeover (Exercise 5b) -------------------------------------- */
-
-
-/* ---------- Layout magic — for now ----------------------------------------
-   One line of next week's CSS: turns the vendor list into a card grid that
-   fits as many columns as there is room for. Uncomment it whenever you like.
-   Next week you'll know exactly why it works.                               */
-
-/* .vendor-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; list-style: none; padding: 0; } */
+ 
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.35rem; margin: 0.75rem 0 0.5rem; }
+p  { max-width: 65ch; }
+ 
+a { color: var(--accent); }
+a:hover { color: var(--lantern); }
+a:focus-visible,
+summary:focus-visible,
+.button:focus-visible,
+.ticket-form button:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+ 
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid var(--surface);
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.main-nav a:hover { color: var(--accent); }
+ 
+main section {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+ 
+.hero {
+  text-align: center;
+  padding-top: 5rem;
+  background: radial-gradient(circle at 50% 10%, rgb(255 92 77 / 25%), transparent 65%);
+}
+.hero h1 {
+  font-size: 4.5rem;
+  font-style: italic;
+  margin: 0.5rem 0 1.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 1.5rem rgb(255 181 71 / 45%), 0 0 4rem rgb(255 92 77 / 40%);
+}
+.eyebrow {
+  margin: 0 auto;
+  color: var(--muted);
+}
+.lead {
+  margin: 0 auto 2rem;
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+ 
+.button,
+.ticket-form button {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border: 0;
+  border-radius: 99px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover,
+.ticket-form button:hover {
+  background: var(--lantern);
+  color: var(--bg);
+}
+ 
+.vendor-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; list-style: none; padding: 0; }
+ 
+.vendor-card {
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 2px solid var(--surface);
+  border-radius: var(--radius);
+}
+.vendor-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.75rem;
+  border-radius: 99px;
+  background: var(--lantern);
+  color: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+ 
+.featured { border-color: var(--accent); }
+.featured h3::before {
+  content: "🏮 ";
+}
+.featured::after {
+  content: "Staff pick";
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.15rem 0.75rem;
+  border-radius: 99px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+ 
+.sold-out h3,
+.sold-out p { opacity: 0.7; }
+.sold-out h3 {
+  text-decoration: line-through;
+  text-decoration-color: var(--lantern);
+}
+.sold-out .tag { background: var(--muted); }
+.vendor-card:has(.badge) { border-style: dashed; border-color: var(--muted); }
+.badge {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.2rem 0.75rem;
+  border: 2px solid var(--lantern);
+  border-radius: 6px;
+  color: var(--lantern);
+  font-family: var(--font-display);
+  transform: rotate(-4deg);
+}
+ 
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+}
+.schedule th,
+.schedule td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+.schedule th {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+.schedule tbody tr:nth-child(even) { background: var(--surface); }
+.schedule td:first-child {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+ 
+details {
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+summary:hover { color: var(--accent); }
+details p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+ 
+.ticket-form {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 32rem;
+}
+.ticket-form label { margin-top: 0.75rem; }
+.ticket-form input[type="text"],
+.ticket-form input[type="email"],
+.ticket-form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  color: var(--ink);
+  border: 2px solid var(--muted);
+  border-radius: var(--radius);
+}
+.ticket-form input:focus-visible,
+.ticket-form select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 1.25rem rgb(255 181 71 / 45%);
+}
+.ticket-form .check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ticket-form input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--accent);
+}
+.ticket-form button {
+  justify-self: start;
+  margin-top: 1.25rem;
+}
+ 
+.site-footer {
+  padding: 2rem 1.5rem;
+  border-top: 2px solid var(--surface);
+  text-align: center;
+  color: var(--muted);
+}
+.site-footer p { margin: 0.25rem auto; }
+ 
+@media (max-width: 40rem) {
+  .hero h1 { font-size: 3rem; }
+}
+ 

@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Harbour Night Market</title>
-  <!-- Exercise 1: connect css/style.css right here, on the next line. -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header" id="top">
@@ -19,7 +21,7 @@
       </ul>
     </nav>
   </header>
-
+ 
   <main>
     <section class="hero">
       <p class="eyebrow">Friday 16 October · 19:00 – 01:00</p>
@@ -27,7 +29,7 @@
       <p class="lead">Forty stalls, three stages and one very long table on the waterfront at Moll de la Fusta. Street food, vinyl, handmade things and people you haven't met yet.</p>
       <a class="button" href="#tickets">Get a free ticket</a>
     </section>
-
+ 
     <section id="vendors">
       <h2>Vendors</h2>
       <ul class="vendor-list">
@@ -65,7 +67,7 @@
         </li>
       </ul>
     </section>
-
+ 
     <section id="schedule">
       <h2>Schedule</h2>
       <table class="schedule">
@@ -82,7 +84,7 @@
         </tbody>
       </table>
     </section>
-
+ 
     <section id="faq">
       <h2>FAQ</h2>
       <details>
@@ -98,30 +100,30 @@
         <p>We move under the big tent next to the main stage. The market has never closed early.</p>
       </details>
     </section>
-
+ 
     <section id="tickets">
       <h2>Get a ticket</h2>
       <form class="ticket-form">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" autocomplete="name" required>
-
+ 
         <label for="email">Email</label>
         <input id="email" name="email" type="email" autocomplete="email" required>
-
+ 
         <label for="arrival">When will you arrive?</label>
         <select id="arrival" name="arrival">
           <option>Early — for the food</option>
           <option>Late — for the music</option>
           <option>Whenever — for the vibes</option>
         </select>
-
+ 
         <label class="check"><input type="checkbox" name="news"> Send me next month's line-up</label>
-
+ 
         <button type="submit">Reserve my spot</button>
       </form>
     </section>
   </main>
-
+ 
   <footer class="site-footer">
     <p>Harbour Night Market · Moll de la Fusta, Barcelona</p>
     <p><a href="#top">Back to top ↑</a></p>
